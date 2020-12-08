@@ -22,10 +22,20 @@ def find_shift(list_strings, known_word):
 
         shift = ord(i[0]) - ord(known_word[0])
 
-        if chr(ord(i[1]) - shift) == (known_word[1]):
+        if shift < 0:
+            shift += 26
 
-            if change_word(i,shift) == known_word:
-                return shift
+        if (ord(i[1]) - shift)  >= ord("A") and (ord(i[1]) - shift)  <= ord("Z"):
+
+            if chr(ord(i[1]) - shift) == (known_word[1]):
+
+                if change_word(i ,shift) == known_word:
+                    return shift
+
+        elif (ord(i[1]) - shift) < ord("A"):
+            if chr(ord(i[1]) - shift + 26) == (known_word[1]):
+                if change_word(i ,shift) == known_word:
+                    return shift
 
 """
 Module used to verify the shift by changing the word thought to be used for the shift
