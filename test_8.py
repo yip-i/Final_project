@@ -69,12 +69,16 @@ def menu():
             x = shift_cipher()
 
             if x == None:
+                print("No shift found.")
                 pass
 
             else:
                 file_write = open("Decrypted.txt", "w")
                 file_write.write(x)
                 file_write.close()
+
+        elif choice == "q":
+            pass
 
         else:
             print(f"No menu choice chosen. {choice} is not valid. Please enter something from the menu options.")

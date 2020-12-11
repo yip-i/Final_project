@@ -22,6 +22,7 @@ def find_shift(list_strings, known_word):
 
         shift = ord(i[0]) - ord(known_word[0])
 
+        #Adjustment for if the shift is negative
         if shift < 0:
             shift += 26
 
@@ -34,6 +35,7 @@ def find_shift(list_strings, known_word):
 
         elif (ord(i[1]) - shift) < ord("A"):
             if chr(ord(i[1]) - shift + 26) == (known_word[1]):
+
                 if change_word(i ,shift) == known_word:
                     return shift
 
@@ -248,7 +250,12 @@ def shift_cipher():
     except FileNotFoundError:
         print(f"File {file_name} not found.")
         print(f"These are the list of files{arr}")
+
         #Recursive call
+        shift_cipher()
+
+    except ValueError:
+        #adding this in so that the program cannot break. Will put into more detail later.
         shift_cipher()
 
 
