@@ -48,6 +48,13 @@ class Password:
             if chr(i) in self.password:
                 return True
 
+        #There are a second batch of characters in python.
+        for i in range(ord(":"), ord("@")):
+            if chr(i) in self.password:
+                return True
+
+
+
         return False
 
 
